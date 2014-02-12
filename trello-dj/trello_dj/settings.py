@@ -1,5 +1,5 @@
 """
-Django settings for hello_world project.
+Django settings for trello_dj project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -54,9 +54,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'hello_world.urls'
+ROOT_URLCONF = 'trello_dj.urls'
 
-WSGI_APPLICATION = 'hello_world.wsgi.application'
+WSGI_APPLICATION = 'trello_dj.wsgi.application'
 
 
 # Database
