@@ -1,13 +1,64 @@
+{% load static %}
+{% load staticfiles %}
 <html>
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
 
+    <script type='text/javascript'>
+        $(function () {
+            
+            $('#container').highcharts({
+             chart: {
+                 type: 'line',
+                 marginRight: 130,
+                 marginBottom: 25
+             },
+             title: {
+                 text: 'Burndown Estimation Koala',
+                       x: -20 //center
+                   },
+                   xAxis: {
+                     categories: ['01/Out', '08/Out', '15/Out', '22/Out', '29/Out', '06/Nov',
+                     '13/Nov', '20/Nov', '27/Nov', '03/Dez', '10/Dez', '17/Dez']
+                 },
+                 yAxis: {
+                     title: {
+                         text: 'Bugs / Stories'
+                     },
+                     plotLines: [{
+                         value: 0,
+                         width: 1,
+                         color: '#808080'
+                     }]
+                 },
+                 tooltip: {
+                     valueSuffix: ' items'
+                 },
+                 legend: {
+                     layout: 'vertical',
+                     align: 'right',
+                     verticalAlign: 'top',
+                     x: -10,
+                     y: 100,
+                     borderWidth: 0
+                 },
+                 series: [{
+                     name: 'Done',
+                     data: [88, 76, 69, 69, 60, 41.5, 20.2, 19.5, 10, 0, 0, 0]
+                 },
+                 {
+                     name: 'Ideal',
+                     data: [88, 80, 72, 64, 56, 48, 40, 32, 24, 16, 8, 0]
+                 }]
+             }); 
+
+
+});
+</script>
+</head>
 <body>
-ID: {{ burn.id }} <br />
-End Date: {{ burn.endDate }} <br />
-Code Review: {{ burn.codeReview }} <br />
-
-{% if burn.codeReview|stringformat:"s" == "0" and burn.endDate|stringformat:"s" != "" %}
-	Não teve code Review
-{% endif %}
+   test
+   <div id='container' style='min-width: 400px; height: 400px; margin: 0 auto'></div>
 </body>
-
 </html>

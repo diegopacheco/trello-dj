@@ -1,0 +1,13 @@
+<html>
+
+<body>
+ID: {{ burn.id }} <br />
+End Date: {{ burn.endDate }} <br />
+Code Review: {{ burn.codeReview }} <br />
+
+{% if burn.codeReview|stringformat:"s" == "0" and burn.endDate|stringformat:"s" != "" %}
+	Não teve code Review
+{% endif %}
+</body>
+
+</html>
