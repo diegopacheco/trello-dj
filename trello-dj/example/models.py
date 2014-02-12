@@ -20,15 +20,16 @@ class trelloDao:
 	def card(self):
 		r = requests.get('http://10.99.3.56:7070/api/v1/teams/boards/1/queues/1/cards/1')
 		js = r.json()
-		return card(js[u'name'], js[u'id'], js[u'points'], js[u'startDate'], js[u'endDate'])			
+		return card(js[u'name'], js[u'id'], js[u'points'], js[u'startDate'], js[u'endDate'],js[u'leadTime'][u'codeReview'])			
 
 class card:
-	def __init__(self, name, id, points, startDate, endDate):
+	def __init__(self, name, id, points, startDate, endDate, codeReview):
 		self.name = name
 		self.id = id
 		self.points = points
 		self.startDate = startDate
 		self.endDate = endDate
+		self.codeReview = codeReview
 
 class cardDao:
 
