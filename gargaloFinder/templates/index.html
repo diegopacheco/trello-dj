@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>My Blog</title>
+    </head>
+
+<body>
+	<div id="content">
+	<h2> Selecione o board desejado: </h2>
+	<table>
+    	{% for e in bordJson %}
+	    	<tr>
+				<td><b>id:</b> </td> 
+				<td>{{e.id}} </td>
+				<td><b>Name:</b></td>
+				<td> {{e.name}}</td>
+				<td><b>Queues Qtt - {{e.queues.length}} :</b></td>
+				<td>
+				{% for ee in e.queues %}
+					<td> {{ee}}</td>
+				{% endfor %}		
+				</td>
+			</tr>
+        {% endfor %}
+    </table>
+    </div>
+</body>
+</html>
+
