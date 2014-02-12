@@ -10,5 +10,6 @@ urlpatterns = patterns('',
 
 	url(r'^admin/', include(admin.site.urls)),
 	url(r'^example', 'example.views.hello'),
-	url(r'^burndown', 'example.views.burndown')
+	url(r'^burndown', 'example.views.burndown'),
+    url(r'^range/from/(\d{2}-[aA-zZ]{3}-\d{4})/to/(\d{2}-[aA-zZ]{3}-\d{4})/$','example.views.date'),
 )

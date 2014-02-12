@@ -8,3 +8,7 @@ def hello(request):
 def burndown(request):
 	burn = trelloDao().card()
         return render_to_response('templates/burndown.html', {'burn' : burn})
+       
+def date(request,startDate,endDate):
+	queue = queueDao().findByrange(startDate,endDate)
+        return render_to_response('templates/queues.html', {'queue' : queue}) 

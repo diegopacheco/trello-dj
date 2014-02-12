@@ -35,4 +35,18 @@ class cardDao:
 	def find(self):
 		r = requests.get('http://10.99.3.56:7070/api/v1/teams/boards/1/queues/1/cards/1')	
 		js = r.json()
-		return card(js[u'name'], js[u'id'], js[u'points'], js[u'startDate'], js[u'endDate'])			
+		return card(js[u'name'], js[u'id'], js[u'points'], js[u'startDate'], js[u'endDate'])	
+
+class queue:
+	def __init__(self, id, name, cards):
+		self.id = id
+		self.name = name
+		self.cards = cards
+	
+				
+class queueDao:
+	def findByrange(self,startDate,endDate):	
+		
+		r = requests.get('http://10.99.2.153:7070/api/v1/teams/boards/1/queues/1?from=' + startDate+'&to=' + endDate)	
+		js = r.json()
+		return queue(js[u'id'], js[u'name'], js[u'cards'])   	
