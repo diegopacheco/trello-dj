@@ -18,7 +18,7 @@ class exampleDao:
 class trelloDao:
 
 	def card(self):
-		r = requests.get('http://10.99.2.153:7070/api/v1/teams/boards/1/queues/1/cards/1')
+		r = requests.get('http://10.99.3.56:7070/api/v1/teams/boards/1/queues/1/cards/1')
 		js = r.json()
 		return card(js[u'name'], js[u'id'], js[u'points'], js[u'startDate'], js[u'endDate'])			
 
@@ -33,6 +33,6 @@ class card:
 class cardDao:
 
 	def find(self):
-		r = requests.get('http://10.99.2.82:7070/api/v1/teams/boards/1/queues/1/cards/1')	
+		r = requests.get('http://10.99.3.56:7070/api/v1/teams/boards/1/queues/1/cards/1')	
 		js = r.json()
 		return card(js[u'name'], js[u'id'], js[u'points'], js[u'startDate'], js[u'endDate'])			
