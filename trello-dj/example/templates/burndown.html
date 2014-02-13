@@ -1,25 +1,32 @@
-{% load static %}
-{% load staticfiles %}
 <html>
 <head>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
 
     <script type='text/javascript'>
-        $(function () {
-            
-            $('#container').highcharts({
+
+        function show_graphic(values){
+
+            $('#container').highcharts(values);
+
+        }
+
+        $(document).ready(function(){
+            show_graphic(
+
+            //TO-DO: Send this json content by python code
+            {
              chart: {
                  type: 'line',
                  marginRight: 130,
                  marginBottom: 25
              },
              title: {
-                 text: 'Burndown Estimation Koala',
+                 text: 'Burndown',
                        x: -20 //center
                    },
                    xAxis: {
-                     categories: ['01/Out', '08/Out', '15/Out', '22/Out', '29/Out', '06/Nov',
+                     categories: ['01/Out', '09/Out', '15/Out', '22/Out', '29/Out', '06/Nov',
                      '13/Nov', '20/Nov', '27/Nov', '03/Dez', '10/Dez', '17/Dez']
                  },
                  yAxis: {
@@ -51,14 +58,14 @@
                      name: 'Ideal',
                      data: [88, 80, 72, 64, 56, 48, 40, 32, 24, 16, 8, 0]
                  }]
-             }); 
+             }
 
+            );
+        });
 
-});
-</script>
+    </script>
 </head>
 <body>
-   test
-   <div id='container' style='min-width: 400px; height: 400px; margin: 0 auto'></div>
+ <div id='container' style='min-width: 400px; height: 400px; margin: 0 auto'></div>
 </body>
 </html>
